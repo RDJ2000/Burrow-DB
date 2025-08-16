@@ -1,17 +1,7 @@
-use burrow_db::BurrowDB;
-use std::io;
+use burrow_db::{BurrowDB, cli::CLI};
 
 fn main() {
-    let db= BurrowDB::new();
-    println!("Hello, world from BurrowDB!");
-
-    loop{
-        let mut input=String::new();
-        io::stdin().read_line(&mut input).expect("Failed to read line");
-
-        let input= input.trim();
-
-        
-
-    }
+    let mut db = BurrowDB::new();
+    let mut cli = CLI::new(&mut db);
+    cli.run();
 }

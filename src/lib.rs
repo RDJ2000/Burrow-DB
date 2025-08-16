@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
+pub mod cli;
+
 pub struct BurrowDB{
     data:HashMap<String,String>,
 }
@@ -20,8 +22,8 @@ impl BurrowDB{
 
     //Get funtion for reading the value
     //Read value by refrence pointing to the key, instead of searching through it
-    pub fn get(&self, key: &String)-> Option<&String>{
-        self.data.get(key);
+    pub fn get(&self, key: &str)-> Option<&str>{
+        self.data.get(key).map(|s| s.as_str())
     }
 
 

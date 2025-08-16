@@ -1,1 +1,1 @@
-/home/rdj/Documents/burrowDB/burrow_db/target/debug/burrow_db: /home/rdj/Documents/burrowDB/burrow_db/src/lib.rs /home/rdj/Documents/burrowDB/burrow_db/src/main.rs
+/home/rdj/Documents/burrowDB/burrow_db/target/debug/burrow_db: /home/rdj/Documents/burrowDB/burrow_db/src/cli.rs /home/rdj/Documents/burrowDB/burrow_db/src/lib.rs /home/rdj/Documents/burrowDB/burrow_db/src/main.rs
