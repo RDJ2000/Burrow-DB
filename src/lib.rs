@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+
 pub mod cli;
 
 pub struct BurrowDB{

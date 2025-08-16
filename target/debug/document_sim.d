@@ -1,0 +1,1 @@
+/home/rdj/Documents/burrowDB/burrow_db/target/debug/document_sim: /home/rdj/Documents/burrowDB/burrow_db/src/bin/document_sim.rs /home/rdj/Documents/burrowDB/burrow_db/src/cli.rs /home/rdj/Documents/burrowDB/burrow_db/src/lib.rs
