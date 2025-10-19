@@ -1,0 +1,55 @@
+// BurrowDB Document Schema
+// Flexible schema for storing JSON-like documents with metadata
+
+namespace BurrowDB.Schema;
+
+// Enum for JSON value types
+enum ValueType : byte {
+    Null = 0,
+    Bool = 1,
+    Int = 2,
+    Float = 3,
+    String = 4,
+    Array = 5,
+    Object = 6
+}
+
+// Key-value pair for objects
+table KeyValue {
+    key: string (required);
+    value: Value (required);
+}
+
+// Flexible value that can represent any JSON type
+table Value {
+    type: ValueType;
+    
+    // Primitive values
+    bool_value: bool;
+    int_value: long;
+    float_value: double;
+    string_value: string;
+    
+    // Complex values
+    array_value: [Value];
+    object_value: [KeyValue];
+}
+
+// Metadata for access tracking and hot-cold tiering
+table Metadata {
+    size_bytes: uint;
+    created_at: ulong;
+    last_accessed: ulong;
+    access_count: uint;
+    is_hot: bool = true;
+}
+
+// Main document block structure
+table DocumentBlock {
+    key: string (required);
+    value: Value (required);
+    metadata: Metadata (required);
+}
+
+root_type DocumentBlock;
+

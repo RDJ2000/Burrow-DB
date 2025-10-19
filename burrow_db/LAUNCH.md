@@ -126,16 +126,6 @@ cargo run --example simple_app
 
 See **README.md** for detailed examples.
 
----
-
-## Next Steps
-
-1. Create GitHub repository
-2. Update Cargo.toml
-3. Publish to crates.io
-4. Announce release
-
-**Estimated time**: 3-4 hours
 
 ---
 
