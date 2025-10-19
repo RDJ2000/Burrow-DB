@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	cd burrow_client && cargo build --release
+	cd .. && cargo build --release
+
+override_dh_auto_install:
+	mkdir -p debian/burrow-db/usr/bin
+	mkdir -p debian/burrow-db/usr/lib
+	mkdir -p debian/burrow-db/usr/share/doc/burrow-db
+	
+	# Install CLI binary
+	install -m 755 burrow_client/target/release/burrow-cli debian/burrow-db/usr/bin/
+	
+	# Install documentation
+	install -m 644 README.md debian/burrow-db/usr/share/doc/burrow-db/
+	install -m 644 LAUNCH.md debian/burrow-db/usr/share/doc/burrow-db/
+	install -m 644 CODE_SUMMARY.md debian/burrow-db/usr/share/doc/burrow-db/
+	install -m 644 ARCHITECTURAL_ADVANTAGES.md debian/burrow-db/usr/share/doc/burrow-db/
+	install -m 644 DATA_FLOW_PROOF.md debian/burrow-db/usr/share/doc/burrow-db/
+
+override_dh_auto_test:
+	cd burrow_client && cargo test --release
+	cargo test --release
+

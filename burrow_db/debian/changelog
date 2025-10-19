@@ -1,0 +1,15 @@
+burrow-db (0.1.0) unstable; urgency=medium
+
+  * Initial release
+  * Core database engine with FlatBuffers serialization
+  * Hot-cold tiering with LRU eviction
+  * Interactive CLI with verbose mode
+  * Full CRUD operations (Create, Read, Update, Delete)
+  * Real-time statistics and monitoring
+  * Block-based document storage
+  * JSON document support
+  * Client library for programmatic access
+  * Example applications
+
+ -- BurrowDB Team <team@burrowdb.dev>  Sat, 19 Oct 2024 16:00:00 +0000
+

@@ -1,0 +1,18 @@
+[package]
+name = "burrow_client"
+version = "0.1.0"
+edition = "2021"
+authors = ["RDJ2000"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/RDJ2000/Burrow-DB"
+description = "Client library and CLI for BurrowDB"
+
+[dependencies]
+burrow_db = { path = ".." }
+flatbuffers = "2.1.2"
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+tempfile = "3.23"
+

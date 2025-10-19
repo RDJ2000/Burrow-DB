@@ -1,0 +1,62 @@
+#!/bin/bash
+set -e
+
+# Post-installation script for BurrowDB
+
+case "$1" in
+    configure)
+        echo "Installing BurrowDB v0.1.0..."
+        
+        # Create data directory if it doesn't exist
+        if [ ! -d "/var/lib/burrow-db" ]; then
+            mkdir -p /var/lib/burrow-db
+            chmod 755 /var/lib/burrow-db
+            echo "✓ Created data directory: /var/lib/burrow-db"
+        fi
+        
+        # Create config directory
+        if [ ! -d "/etc/burrow-db" ]; then
+            mkdir -p /etc/burrow-db
+            chmod 755 /etc/burrow-db
+            echo "✓ Created config directory: /etc/burrow-db"
+        fi
+        
+        # Create log directory
+        if [ ! -d "/var/log/burrow-db" ]; then
+            mkdir -p /var/log/burrow-db
+            chmod 755 /var/log/burrow-db
+            echo "✓ Created log directory: /var/log/burrow-db"
+        fi
+        
+        echo ""
+        echo "╔════════════════════════════════════════════════════════════════╗"
+        echo "║                                                                ║"
+        echo "║  ✅ BurrowDB v0.1.0 installed successfully!                   ║"
+        echo "║                                                                ║"
+        echo "║  Quick Start:                                                 ║"
+        echo "║    burrow-cli help              - Show help                   ║"
+        echo "║    burrow-cli put key '{...}'   - Store a document            ║"
+        echo "║    burrow-cli get key           - Retrieve a document         ║"
+        echo "║    burrow-cli list              - List all documents          ║"
+        echo "║    burrow-cli stats             - Show statistics             ║"
+        echo "║    burrow-cli interactive       - Start interactive mode      ║"
+        echo "║                                                                ║"
+        echo "║  Data Location: /var/lib/burrow-db                            ║"
+        echo "║  Config Location: /etc/burrow-db                              ║"
+        echo "║  Logs Location: /var/log/burrow-db                            ║"
+        echo "║                                                                ║"
+        echo "║  Documentation: https://github.com/yourusername/burrowdb      ║"
+        echo "║                                                                ║"
+        echo "╚════════════════════════════════════════════════════════════════╝"
+        echo ""
+        ;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
+

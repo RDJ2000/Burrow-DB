@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+# Pre-removal script for BurrowDB
+
+case "$1" in
+    remove)
+        echo "Removing BurrowDB..."
+        echo "⚠️  Data in /var/lib/burrow-db will be preserved"
+        echo "⚠️  Config in /etc/burrow-db will be preserved"
+        ;;
+    deconfigure)
+        ;;
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
+

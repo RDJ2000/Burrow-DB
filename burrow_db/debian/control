@@ -1,0 +1,31 @@
+Source: burrow-db
+Maintainer: BurrowDB Team <team@burrowdb.dev>
+Homepage: https://github.com/yourusername/burrowdb
+Section: database
+Priority: optional
+Build-Depends: debhelper-compat (= 13), cargo, rustc
+Standards-Version: 4.6.0
+
+Package: burrow-db
+Architecture: amd64
+Description: High-Performance Document Database with Hot-Cold Tiering
+ BurrowDB is a lightweight, high-performance document database designed for
+ real-time applications. It uses FlatBuffers for efficient serialization and
+ implements intelligent hot-cold tiering for optimal performance.
+ .
+ Features:
+  - Pure FlatBuffer serialization (zero-copy)
+  - Hot-cold tiering (RAM + Disk)
+  - LRU eviction policy
+  - Block-based document storage
+  - JSON document support
+  - Interactive CLI with verbose mode
+  - Real-time statistics
+ .
+ Use Cases:
+  - Real-time auctions
+  - Live data feeds
+  - Session management
+  - Cache layer
+  - Time-series data
+Depends: libc6 (>= 2.17)
