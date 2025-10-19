@@ -73,12 +73,9 @@ cargo build --release
 
 ## Documentation
 
-- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute getting started guide
-- **[INSTALLATION.md](INSTALLATION.md)** - Detailed installation instructions
-- **[API_REFERENCE.md](API_REFERENCE.md)** - Complete API documentation
 - **[ARCHITECTURAL_ADVANTAGES.md](ARCHITECTURAL_ADVANTAGES.md)** - Why BurrowDB is different
 - **[CODE_SUMMARY.md](CODE_SUMMARY.md)** - Technical overview
-- **[RELEASE_PLAN.md](RELEASE_PLAN.md)** - Release roadmap
+- **[LAUNCH.md](LAUNCH.md)** - Launch readiness and getting started
 
 ## Examples
 
@@ -140,4 +137,4 @@ MIT or Apache 2.0
 
 ## Contributing
 
-Contributions welcome! See CONTRIBUTING.md for guidelines.
+Contributions welcome! Please open an issue or pull request on GitHub.

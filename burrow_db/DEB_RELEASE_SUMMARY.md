@@ -2,10 +2,9 @@
 
 ## 📦 Package Information
 
-**Package Name:** `burrow-db_0.1.0_amd64.deb`  
-**Size:** 284 KB  
-**Location:** `/home/rdj/Documents/burrowDB/`  
-**Architecture:** amd64 (x86-64)  
+**Package Name:** `burrow-db_0.1.0_amd64.deb`
+**Size:** 284 KB
+**Architecture:** amd64 (x86-64)
 **Format:** Debian binary package (format 2.0)
 
 ## 🎯 What's Included
