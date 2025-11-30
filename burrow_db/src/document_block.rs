@@ -42,6 +42,24 @@ impl DocumentBlock {
         })
     }
 
+    /// Create a DocumentBlock from raw bytes without FlatBuffer validation
+    ///
+    /// This is for the server layer to store arbitrary binary data.
+    /// No validation is performed - the caller is responsible for data integrity.
+    pub fn from_raw(data: Vec<u8>) -> Self {
+        let now = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_secs();
+
+        Self {
+            data,
+            access_count: 0,
+            last_accessed: now,
+            is_hot: true,
+        }
+    }
+
     /// Get the raw FlatBuffer bytes
     ///
     /// Returns the complete FlatBuffer for:

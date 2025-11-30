@@ -1,0 +1,30 @@
+[package]
+name = "burrow_server"
+version = "0.2.0"
+edition = "2021"
+description = "High-performance TCP server for BurrowDB with read multiplexing"
+license = "MIT"
+authors = ["BurrowDB Team"]
+
+[dependencies]
+# Core database engine
+burrow_db = { path = ".." }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization for protocol
+bytes = "1.5"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dashmap = "6.1.0"
+
+[[bin]]
+name = "burrow-server"
+path = "src/main.rs"
+
+[dev-dependencies]
+futures = "0.3.31"
+

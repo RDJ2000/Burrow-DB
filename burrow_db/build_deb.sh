@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="0.1.0"
+VERSION="0.2.0"
 PACKAGE_NAME="burrow-db"
 ARCH="amd64"
 BUILD_DIR="/tmp/burrow-db-build"
@@ -37,10 +37,10 @@ install -m 644 /home/rdj/Documents/burrowDB/burrow_db/CODE_SUMMARY.md "$PACKAGE_
 echo "📦 [4/5] Creating control files..."
 cat > "$PACKAGE_DIR/DEBIAN/control" << 'CONTROL'
 Package: burrow-db
-Version: 0.1.0
+Version: 0.2.0
 Architecture: amd64
-Maintainer: BurrowDB Team <team@burrowdb.dev>
-Homepage: https://github.com/yourusername/burrowdb
+Maintainer: RDJ2000
+Homepage: https://github.com/RDJ2000/burrowdb
 Depends: libc6 (>= 2.17)
 Section: database
 Priority: optional
@@ -67,7 +67,7 @@ case "$1" in
     configure)
         mkdir -p /var/lib/burrow-db /etc/burrow-db /var/log/burrow-db
         chmod 755 /var/lib/burrow-db /etc/burrow-db /var/log/burrow-db
-        echo "✅ BurrowDB v0.1.0 installed successfully!"
+        echo "✅ BurrowDB v0.2.0 installed successfully!"
         echo ""
         echo "Quick Start:"
         echo "  burrow-cli help              - Show help"
@@ -94,17 +94,17 @@ if [ ! -f "$DEB_FILE" ]; then
 fi
 
 if [ -f "$DEB_FILE" ]; then
-    cp "$DEB_FILE" /home/rdj/Documents/burrowDB/burrow-db_0.1.0_amd64.deb
+    cp "$DEB_FILE" /home/rdj/Documents/burrowDB/burrow-db_0.2.0_amd64.deb
     echo ""
     echo "╔════════════════════════════════════════════════════════════════════════════╗"
     echo "║                                                                            ║"
     echo "║  ✅ .deb Package Built Successfully!                                      ║"
     echo "║                                                                            ║"
-    echo "║  Package: /home/rdj/Documents/burrowDB/burrow-db_0.1.0_amd64.deb"
+    echo "║  Package: /home/rdj/Documents/burrowDB/burrow-db_0.2.0_amd64.deb"
     echo "║  Size: $(du -h "$DEB_FILE" | cut -f1)"
     echo "║                                                                            ║"
     echo "║  Installation:                                                            ║"
-    echo "║    sudo dpkg -i burrow-db_0.1.0_amd64.deb                                ║"
+    echo "║    sudo dpkg -i burrow-db_0.2.0_amd64.deb                                ║"
     echo "║                                                                            ║"
     echo "║  Verification:                                                            ║"
     echo "║    dpkg -l | grep burrow-db                                              ║"

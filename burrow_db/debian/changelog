@@ -1,3 +1,15 @@
+burrow-db (0.2.0) unstable; urgency=medium
+
+  * Actor-per-Key engine (Erlang-style concurrency)
+  * TCP server with binary protocol
+  * Async client with connection pooling
+  * Deferred persistence (tunable durability)
+  * Idle actor cleanup
+  * Prometheus-compatible metrics
+  * ~34K ops/sec with 100 concurrent clients
+
+ -- BurrowDB Team <team@burrowdb.dev>  Sat, 30 Nov 2024 12:00:00 +0000
+
 burrow-db (0.1.0) unstable; urgency=medium
 
   * Initial release

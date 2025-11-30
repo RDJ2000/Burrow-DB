@@ -1,8 +1,8 @@
-# BurrowDB v0.1.0 - Debian Package Release
+# BurrowDB v0.2.0 - Debian Package Release
 
 ## 📦 Package Information
 
-**Package Name:** `burrow-db_0.1.0_amd64.deb`
+**Package Name:** `burrow-db_0.2.0_amd64.deb`
 **Size:** 284 KB
 **Architecture:** amd64 (x86-64)
 **Format:** Debian binary package (format 2.0)
@@ -27,7 +27,7 @@
 ## 🚀 Installation
 
 ```bash
-sudo dpkg -i burrow-db_0.1.0_amd64.deb
+sudo dpkg -i burrow-db_0.2.0_amd64.deb
 ```
 
 ### Post-Installation
@@ -236,7 +236,7 @@ Database Statistics:
 
 ```
 Package: burrow-db
-Version: 0.1.0
+Version: 0.2.0
 Architecture: amd64
 Maintainer: RDJ2000 <rdj@burrowdb.dev>
 Homepage: https://github.com/RDJ2000/Burrow-DB
@@ -264,7 +264,7 @@ burrow-cli list
 
 ## 🎉 Release Complete
 
-BurrowDB v0.1.0 is now ready for distribution as a Debian package!
+BurrowDB v0.2.0 is now ready for distribution as a Debian package!
 
 **Key Achievements:**
 - ✅ Production-ready binary
