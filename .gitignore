@@ -29,3 +29,10 @@ debian/source/local-options
 
 # Logs
 *.log
+
+# Analysis and verification reports
+DISCREPANCY_ANALYSIS_REPORT.md
+COMPLETION_SUMMARY.md
+FIXES_APPLIED.md
+FIXES_SUMMARY.md
+VERIFICATION_REPORT.md
