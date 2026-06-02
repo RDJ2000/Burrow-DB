@@ -57,7 +57,9 @@ A high-performance key-value store with **Actor-per-Key** concurrency, hot-cold 
 ### Network Layer
 - **TCP Server**: Binary protocol, high-throughput
 - **Async Client**: Connection pooling, pipelining ready
-- **Metrics**: Prometheus-compatible stats
+- **Metrics**: Prometheus-compatible stats with HTTP endpoint
+  - Enable with `--metrics-port <port>` flag
+  - Access metrics at `http://localhost:<port>/metrics`
 
 ### Storage
 - **FlatBuffers**: Zero-copy binary serialization
@@ -175,7 +177,7 @@ burrow-cli stats
 
 ```bash
 git clone https://github.com/RDJ2000/Burrow-DB.git
-cd Burrow-DB/burrow_db
+cd Burrow-DB
 
 # Build everything
 cargo build --release
@@ -201,8 +203,9 @@ cargo run --release -p burrow_server --example test_client_server
 ✅ Hot-cold tiering with LRU eviction
 ✅ Deferred persistence (tunable durability)
 ✅ Idle actor cleanup
-✅ Prometheus-compatible metrics
+✅ Prometheus-compatible metrics with HTTP endpoint
 ✅ CLI tool (embedded mode)
+✅ Real-time observability with latency histograms
 
 ## What's NOT Included (v0.3+)
 

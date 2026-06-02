@@ -122,14 +122,21 @@ Binary wire protocol.
 
 **Status Codes**: OK=0, NOT_FOUND=1, ERROR=2
 
-### 5. **metrics.rs** (150 lines)
-Prometheus-compatible metrics.
+### 5. **metrics.rs** (356 lines)
+Prometheus-compatible metrics with histograms, counters, and export functions.
 
 **Tracked Metrics**:
-- `connections_active` - Current open connections
-- `connections_total` - Total connections since start
-- `requests_total{command}` - Requests by type
-- `request_duration_seconds` - Latency histogram
+- `burrowdb_connections_active` - Current open connections
+- `burrowdb_connections_total` - Total connections since start
+- `burrowdb_requests_total{op}` - Requests by operation type (GET, PUT, DELETE, KEYS, STATS)
+- `burrowdb_responses_total{status}` - Response status distribution (OK, NOT_FOUND, ERROR)
+- `burrowdb_latency_us{op,quantile}` - Latency histogram with p50 and p99 percentiles
+- `burrowdb_reads_coalesced` / `burrowdb_reads_direct` - Read multiplexing stats
+- `burrowdb_bytes_total{direction}` - Bytes received and sent
+
+**Export Formats**:
+- Prometheus text format (default HTTP endpoint)
+- JSON format (available via export_json())
 
 ### 6. **multiplexer.rs** (165 lines)
 Read request coalescing (legacy, pre-actor).
@@ -236,14 +243,14 @@ Client: GET "user:1"
 
 | Component | Lines | Purpose |
 |-----------|-------|---------|
-| **Actor Engine** | 510 | Actor-per-Key concurrency |
+| **Actor Engine** | 514 | Actor-per-Key concurrency |
 | **Actor Server** | 220 | TCP server |
-| **Client** | 300 | Async client + pool |
+| **Client** | 375 | Async client + pool |
 | **Protocol** | 273 | Binary wire protocol |
-| **Metrics** | 150 | Prometheus metrics |
-| **Storage Layer** | 463 | Hot-cold tiering, disk |
-| **Client Lib** | 308 | JSON conversion |
-| **Total** | **~2,500** | **Complete system** |
+| **Metrics** | 356 | Prometheus metrics with histograms |
+| **Storage Layer** | 165 | Hot-cold tiering, disk |
+| **Client Lib** | 308+ | JSON conversion |
+| **Total** | **~2,750** | **Complete system** |
 
 ---
 

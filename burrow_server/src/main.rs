@@ -54,7 +54,7 @@ fn parse_args() -> Args {
                 }
             }
             "--help" | "-h" => {
-                println!("BurrowDB Server v0.1.0");
+                println!("BurrowDB Server v0.2.0");
                 println!();
                 println!("Usage: burrow-server [OPTIONS]");
                 println!();

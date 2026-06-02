@@ -23,16 +23,16 @@
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Components (~2,500 lines)
+### Components (~2,750 lines)
 | Component | Lines | Purpose |
 |-----------|-------|---------|
-| Actor Engine | 510 | Erlang-style key actors |
+| Actor Engine | 514 | Erlang-style key actors |
 | Actor Server | 220 | TCP server |
-| Async Client | 300 | Client + connection pool |
+| Async Client | 375 | Client + connection pool |
 | Protocol | 273 | Binary wire protocol |
-| Metrics | 150 | Prometheus-compatible |
-| Storage | 463 | Hot-cold tiering |
-| Client Lib | 308 | JSON conversion (embedded) |
+| Metrics | 356 | Prometheus-compatible with histograms |
+| Storage | 165 | Hot-cold tiering |
+| Client Lib | 308+ | JSON conversion (embedded) |
 
 ---
 
@@ -41,23 +41,18 @@
 ### Start Server
 
 ```rust
-use burrow_server::{ActorServer, ActorServerConfig, ActorEngineConfig};
+use burrow_server::{Server, ServerConfig};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let config = ActorServerConfig {
+    let config = ServerConfig {
         bind_addr: "127.0.0.1:7654".to_string(),
-        engine: ActorEngineConfig {
-            data_dir: "./data".to_string(),
-            max_hot_blocks: 10_000,
-            mailbox_size: 100,
-            idle_timeout_secs: 60,
-            flush_interval_ms: 100,
-        },
+        data_dir: "./data".to_string(),
+        max_hot_blocks: 10_000,
         read_buffer_size: 64 * 1024,
     };
 
-    let server = ActorServer::new(config)?;
+    let server = Server::new(config)?;
     server.run().await
 }
 ```
