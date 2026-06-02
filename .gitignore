@@ -1,0 +1,31 @@
+# Rust build artifacts
+/target/
+*.rlib
+*.rmeta
+*.so
+*.dylib
+*.a
+
+# Cargo files
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+*.deb
+burrow-db_*.deb
+debian/source/format
+debian/source/local-options
+
+# Runtime files
+*.block
+*.db
+
+# Logs
+*.log
